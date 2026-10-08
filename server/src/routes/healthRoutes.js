@@ -1,0 +1,1 @@
+import {Router} from 'express';import mongoose from 'mongoose';const r=Router();r.get('/',(req,res)=>res.json({ok:true,service:'erp-api',database:mongoose.connection.readyState===1?'connected':'disconnected',time:new Date().toISOString()}));export default r;

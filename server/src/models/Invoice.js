@@ -1,0 +1,3 @@
+import mongoose from 'mongoose';
+const schema=new mongoose.Schema({invoiceNumber:{type:String,unique:true},salesOrder:{type:mongoose.Schema.Types.ObjectId,ref:'SalesOrder',required:true,unique:true},customer:{type:mongoose.Schema.Types.ObjectId,ref:'Customer',required:true},subtotal:{type:Number,default:0},taxRate:{type:Number,default:0,min:0,max:100},taxAmount:{type:Number,default:0},total:{type:Number,default:0},status:{type:String,enum:['Unpaid','Paid','Cancelled'],default:'Unpaid'},issueDate:{type:Date,default:Date.now},dueDate:Date,notes:String},{timestamps:true});
+export default mongoose.model('Invoice',schema);
